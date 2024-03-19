@@ -7,10 +7,10 @@
 
 char palavra[20];
 char dica[50];
-char palavraSecreta[20];
+char palavra_secreta[20];
 char letra;
 int chances = 7;
-int tamanhoPalavra;
+int tamanho_palavra;
 
 struct PalavraDica {
     char palavra[20];
@@ -32,7 +32,7 @@ struct PalavraDica banco_palavras[] = {
 };
 
 
-void sorteiaPalavra() {
+void sorteia_palavra() {
     srand(time(NULL)); // Inicializa o gerador de números aleatórios com uma semente diferente
 
     int numero = rand() % 10; // Gera um número aleatório entre 0 e 9
@@ -42,29 +42,29 @@ void sorteiaPalavra() {
     strcpy(palavra, pd.palavra);
     strcpy(dica, pd.dica);
 
-    tamanhoPalavra = strlen(palavra);
+    tamanho_palavra = strlen(palavra);
 
-    for (int i = 0; i < tamanhoPalavra; i++) {
-        palavraSecreta[i] = '-';
+    for (int i = 0; i < tamanho_palavra; i++) {
+        palavra_secreta[i] = '-';
     }
 
-    palavraSecreta[tamanhoPalavra] = '\0'; // Adiciona o caractere nulo de terminação
+    palavra_secreta[tamanho_palavra] = '\0'; // Adiciona o caractere nulo de terminação
 }
 
 
-void pedeChute() {
+void pede_chute() {
     printf("\nChute uma letra: ");
     scanf(" %c", &letra);
 }
 
 
-void verificaChute() {
+void verifica_chute() {
     int letraEncontrada = 0;
 
     for (int i = 0; i < strlen(palavra); i++) {
 
         if (palavra[i] == letra) {
-            palavraSecreta[i] = letra;
+            palavra_secreta[i] = letra;
             letraEncontrada = 1;
         }
 
@@ -76,7 +76,7 @@ void verificaChute() {
 
 
 bool venceu() {
-    return strcmp(palavra, palavraSecreta) == 0;
+    return strcmp(palavra, palavra_secreta) == 0;
 }
 
 
@@ -138,25 +138,27 @@ void exibe() {
     printf("|\n"
            "|________________________\n");
 
-    printf("\nA palavra e': %s", palavraSecreta);
-    printf("\nA palavra tem %d letras", tamanhoPalavra);
+    printf("\nA palavra e': %s", palavra_secreta);
+    printf("\nA palavra tem %d letras", tamanho_palavra);
     printf("\nDica: %s", dica);
     printf("\nChances restantes: %d", chances);
 
 }
 
 
+
+// Inicio do programa principal.
 void main() {
 
-    sorteiaPalavra();
+    sorteia_palavra();
 
     while (chances > 0) {
 
         exibe();
 
-        pedeChute();
+        pede_chute();
 
-        verificaChute();
+        verifica_chute();
 
         if (venceu()) {
             exibe();
@@ -172,3 +174,4 @@ void main() {
     }
 
 }
+
