@@ -1,3 +1,0 @@
-/home/ale/CLionProjects/jogoDaForcaC/cmake-build-debug/CMakeFiles/jogoDaForcaC.dir
-/home/ale/CLionProjects/jogoDaForcaC/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ale/CLionProjects/jogoDaForcaC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
