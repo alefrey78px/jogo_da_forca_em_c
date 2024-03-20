@@ -96,6 +96,7 @@ bool venceu() {
 
 
 // Vai exibindo a tela do jogo cada vez que chamado.
+// Baseado na versão Python.
 void exibe() {
     printf("\nJogo Da Forca\n");
     printf("\n|==========|\n"
